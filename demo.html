@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript var, let, const</title>
+</head>
+<body>
+
+<h1>JavaScript Variable Concepts</h1>
+
+<h2>Variable Declaration</h2>
+<p>
+JavaScript mein variables different tarike se declare kiye ja sakte hain.
+Variable ka naam letters, underscore (_) ya dollar ($) se start ho sakta hai.
+Keyword ke bina variable banana recommended nahi hota.
+</p>
+
+<h2>Using var</h2>
+<p>
+var function scoped hota hai.  
+Isko redeclare aur reassign kiya ja sakta hai.
+</p>
+
+<pre><code>
+var a ="temp";
+var_123="hellow";
+var $123="hello";
+b=24;
+</code></pre>
+
+<h2>Using let</h2>
+<p>
+let block scoped hota hai aur redeclare nahi ho sakta.
+</p>
+
+<pre><code>
+let temp =" abc";
+</code></pre>
+
+<h2>Declaration and Initialization</h2>
+<p>
+Declaration ka matlab variable banana aur initialization ka matlab
+usko value assign karna hota hai.
+</p>
+
+<pre><code>
+var d;
+var d =12;
+d = 24;
+var d  ="hello"
+temp_const="hello";
+</code></pre>
+
+<h2>Scope in JavaScript (let)</h2>
+<p>
+let global, block aur function scope follow karta hai.
+</p>
+
+<pre><code>
+let f = 23;
+{
+    let f = 25;
+    console.log("block scope" + f);
+}
+function abc() {
+    let f = 30;
+    console.log("fuctional scope " + f);
+}
+abc();
+console.log(f)
+</code></pre>
+
+<h2>Scope in JavaScript (var)</h2>
+<p>
+var block scope follow nahi karta, lekin function scope follow karta hai.
+</p>
+
+<pre><code>
+var s = 23;
+{
+    var s = 25;
+    console.log("block scope" + s);
+}
+function abc() {
+    var s = 30;
+    console.log("fuctional scope " + s);
+}
+abc();
+console.log(s)
+</code></pre>
+
+<h2>Temporal Dead Zone (TDZ)</h2>
+<p>
+var ke saath TDZ ka issue nahi hota.
+</p>
+
+<pre><code>
+console.log(temp_b);
+var temp_b=24;
+</code></pre>
+
+<h2>Hoisting</h2>
+<p>
+Hoisting mein variable declaration upar chali jaati hai
+lekin initialization apni jagah par rehti hai.
+</p>
+
+<pre><code>
+var temp_d =12;
+let temp_d_let = 24;
+</code></pre>
+
+<h2>Conclusion</h2>
+<p>
+Is file ke through var, let aur scope ka difference clearly samajh aata hai.
+Modern JavaScript mein let aur const use karna best practice hai.
+</p>
+
+
+<div>
+<h3>Example 1:</h3>
+<p>console.log(nm);</p>
+<p>let nm = "name"; </p>
+<p>Error</p>
+<p>Why: beacuse we print console before inilization & use let keyword for declare variable. </p>
+</div>
+<br>
+<div>
+<h3>Example 2:</h3>
+<p>console.log(b);</p>
+<p>var b = "username"; </p>
+<p>Answer</p>
+<p>Why: beacuse we print console before inilization & use var keyword for declare variable. </p>
+</div>
+<br>
+<div>
+<h3>Example 3:</h3>
+<p>var x = 1 </p>
+<p>{
+var x = 2
+}
+</p>
+<p> log(x) ;</p>
+<p>Answer</p>
+<p>Why: beacuse  where we use var than in console print block scope.  </p>
+</div>
+
+<div>
+<h3>Example 4:</h3>
+<p>let a = 10; </p>
+<p>{
+let a 20;
+console.log("Inside:", a);
+}</p>
+<p>
+console.log("Outside:", a);
+</p>
+<p>Answer</p>
+<p>Why:  in console first block scope after print global scope. </p>
+</div>
+</body>
+</html>
