@@ -208,6 +208,177 @@ console.log("Outside:", a);
 on console.log
 <p>person.name= "user"; </p>
 <p>person = {}; X </p>
-<p>Answer or Error: </p>
-<p>Why: </p>
+<p>Error: </p>
+<p>Why:enter the object than change the value and without the add object otherwise not change the value </p>
 </div>
+
+<h1>JavaScript Data Types</h1>
+
+<h2>Data Types</h2>
+<p>JavaScript mein data types do types ke hote hain:</p>
+
+<ul>
+  <li>Primitive Data Types</li>
+  <li>Non-Primitive (Reference) Data Types</li>
+</ul>
+
+<hr>
+
+<h2>1. Primitive Data Types</h2>
+<p>
+Primitive data types mein <b>real value ka copy</b> hota hai.
+</p>
+
+<pre>
+//copy --> real value
+
+let a = 12;
+a = a + 3;
+let b = a; // a-->12
+</pre>
+
+<p>
+Primitive data types ke types:
+</p>
+
+<ul>
+  <li>string</li>
+  <li>number</li>
+  <li>boolean</li>
+  <li>null</li>
+  <li>undefined</li>
+  <li>symbol</li>
+  <li>bigint</li>
+</ul>
+
+<hr>
+
+<h3>Number</h3>
+<pre>
+let e = 12;
+e = 12.25;
+</pre>
+
+<hr>
+
+<h3>String</h3>
+<pre>
+let g = "hello";
+g = "hello";
+</pre>
+
+<hr>
+
+<h3>Boolean</h3>
+<pre>
+let h = "true";
+h = "false";
+</pre>
+
+<hr>
+
+<h3>Null</h3>
+<p>you give a value</p>
+<pre>
+let t = null;
+</pre>
+
+<hr>
+
+<h3>Undefined</h3>
+<p>you don't give a value, by default value</p>
+<pre>
+let i;
+</pre>
+
+<hr>
+
+<h3>Symbol</h3>
+<p>unique immutable value</p>
+
+<pre>
+let u1 = Symbol("uid");
+let u2 = Symbol("uid");
+// check u1===u2
+</pre>
+
+<pre>
+let obj = { uid: 1, name: "test", email: "test@test.com" };
+let u3 = Symbol("uid");
+obj[u3] = "001";
+</pre>
+
+<hr>
+
+<h3>BigInt</h3>
+<p>check range of number Number.MAX_SAFE_INTEGER</p>
+
+<pre>
+let number = 9007199254740991;
+number = number + 20;
+
+let num2 = 900719925470991n;
+num2 + 3n;
+</pre>
+
+<hr>
+
+<h2>2. Non-Primitive Data Types (Reference Data Types)</h2>
+<p>
+Non-primitive data types mein <b>parent ka reference</b> milta hai.
+</p>
+
+<pre>
+//copy --> give reference of parent
+
+let temp_a = [1, 2, 3];
+let temp_b = temp_a;
+temp_b.pop(); // remove 1 value
+</pre>
+
+<p>
+Non-primitive data types:
+</p>
+
+<ul>
+  <li>Array []</li>
+  <li>Object {}</li>
+  <li>Function ()</li>
+</ul>
+
+<hr>
+
+<h2>String Quotes Types</h2>
+<pre>
+// '' - single quotes
+// "" - double quotes
+// `` - backticks
+
+let d = "name";
+d = 'username';
+d = `firstname`;
+</pre>
+
+<hr>
+
+<h2>Examples of Non-Primitive Types</h2>
+
+<pre>
+let temp_array = ["name", "age", "phone_number"];
+
+let obj3 = {
+  name: "test",
+  age: 9,
+  phone_number: 558998554
+};
+
+function name(params) {}
+</pre>
+
+<hr>
+
+<h2>Dynamic Typing</h2>
+<p>
+JavaScript ek <b>dynamically typed language</b> hai.
+</p>
+
