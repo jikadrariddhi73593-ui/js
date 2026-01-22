@@ -720,3 +720,173 @@ If the condition is false, the second statement will run.
 
   <p><b>Why:</b> Comparison happens before post-decrement.</p>
     </div>
+        # JavaScript Control Flow Statements
+<hr>
+<h2>If Statement</h2>
+<p>The <strong>if</strong> statement executes a block of code if the condition is <em>true</em>.</p>
+<pre>
+<code>
+if (1213) {
+    console.log(true);
+}
+if (1513) {
+    console.log(true);
+}
+// condition is false that why if statement not run
+if (!12) {
+    console.log("number");
+}
+</code>
+</pre>
+<hr>
+<h2>If-Else Statement</h2>
+<p>The <strong>if-else</strong> statement runs one block if the condition is true, otherwise another block.</p>
+<pre>
+<code>
+if (12 < 13) {
+    console.log(true);
+} else {
+    console.log(false);
+}
+if (15 > 13) {
+    console.log(true);
+} 
+// condition is false that why if statement not run
+else {
+    console.log(false);
+}
+if (!12) {
+    console.log("number");
+} else {
+    console.log("Not A Number");
+}
+</code>
+</pre>
+<hr>
+<h2>If - Else If - Else Statement</h2>
+<p>Used when multiple conditions need to be checked.</p>
+<pre>
+<code>
+let loggedin = true;
+let admin = true;
+if (loggedin && admin) {
+    console.log("welcome admin");
+} else if (loggedin) {
+    console.log("welcome user");
+} else {
+    console.log("go to login page");
+}
+</code>
+</pre>
+<hr>
+<h2>Switch Case Statement</h2>
+<h3>Example 1</h3>
+<pre>
+<code>
+switch ('A') { // value case sathe match karshe
+    case 'A':
+        console.log("A");
+        break;
+    case 'B':
+        console.log("B");
+        break;
+    case 'C':
+        console.log("C");
+        break;
+    default:
+        console.log("D");
+        break;
+}
+</code>
+</pre>
+<h3>Example 2</h3>
+<pre>
+<code>
+switch ('First50') { // value case sathe match karshe
+    case 'First50':
+        console.log("50% Off on First Order");
+        break;
+    case 'BOGO':
+        console.log("Buy one get one");
+        break;
+    case 'BlackFriday':
+        console.log("It's Black Friday Sale get at Rs. 50");
+        break;
+    default:
+        console.log("Offer Not Valid");
+        break;
+}
+</code>
+</pre>
+<hr>
+<h2>Early Return Pattern</h2>
+<p>Early return improves readability and avoids unnecessary else blocks.</p>
+<h3>Example 1</h3>
+<pre>
+<code>
+function score(value) {
+    if (value > 90) {
+        return "Value is more than 90";
+    } else if (value < 80) {
+        return "Value is less than 80";
+    } else if (value < 70) {
+        return "Value is less than 70";
+    } else if (value < 60) {
+        return "Value is less than 60";
+    } else {
+        return "Value is less than 60";
+    }
+}
+score(100);
+</code>
+</pre>
+<h3>Example 2 (Short Syntax)</h3>
+<pre>
+<code>
+function score1(value) {
+    if (value > 90) return "Value is more than 90";
+    else if (value < 80) return "Value is less than 80";
+    else if (value < 70) return "Value is less than 70";
+    else if (value < 60) return "Value is less than 60";
+    else return "Value is less than 60";
+}
+</code>
+</pre>
+<h3>Example 3 </h3>
+<pre>
+<code>
+function score2 (value) {
+if (value < 60) return "Value is less than 60";
+else if (value < 70) return "Value is less than 70";
+else if (value < 80) return "Value is less than 80";
+else if (value < 90) return "Value is less than 90";
+else return "Value is more than 90";
+}
+</code>
+</pre>
+<hr>
+<pre>
+  <code>
+    // function rps (user, computer) {
+// if(user === "rock" && computer === "scissor") return "user wins";
+// if(user === "scissor" && computer === "paper") return "user wins";
+// if(user === "paper" && computer === "rock") return "user wins";
+// if(user === "scissor" && computer === "rock") return "computer wins"
+// if(user === "rock" && computer === "paper") return "computer wins"
+// if(user === "paper" && computer === "scissor") return "computer wins"
+// return "it's a tie"
+// }
+  </code>
+</pre>
+
+<pre>
+  <code>
+    function rps2(user, computer) {
+if(user === computer) return "It's a tie!";
+if(user === "rock" && computer === "scissor") return "user wins";
+if(user === "scissor" && computer === "paper") return "user wins";
+if(user === "paper" && computer === "rock") return "user wins";
+return "computer wins";
+}
+  </code>
+</pre>
