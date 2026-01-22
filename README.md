@@ -890,3 +890,181 @@ return "computer wins";
 }
   </code>
 </pre>
+# JavaScript Loops – README
+
+<p>
+This document explains JavaScript loops with simple examples.
+All examples are written for beginners and show output in the browser console.
+</p>
+
+<hr>
+
+<h2>🔁 What are Loops?</h2>
+<p>
+Loops are used to <b>repeat a block of code</b>.
+Example: printing numbers like 1 2 3 4 5 6.
+</p>
+
+<hr>
+
+<h2>🔹 For Loop</h2>
+<p>
+<b>Why use for loop?</b><br>
+When you know <b>how many times</b> you want to repeat a block.
+</p>
+
+<p>
+<b>Structure:</b><br>
+start → end → change
+</p>
+
+<pre>
+for (start; end; change) {
+  // code
+}
+</pre>
+
+<h3>Example: Print 1 to 10</h3>
+<pre>
+for (let i = 1; i <= 10; i++) {
+  console.log(i);
+}
+</pre>
+
+<h3>Example: Print 20 to 10 (reverse)</h3>
+<pre>
+for (let i = 20; i >= 10; i--) {
+  console.log(i);
+}
+</pre>
+
+<hr>
+
+<h2>🔹 While Loop</h2>
+<p>
+Used when you <b>do not know exactly</b> how many times the loop will run.
+</p>
+
+<p>
+<b>Structure:</b>
+</p>
+
+<pre>
+start
+while (condition) {
+  // code
+  change
+}
+</pre>
+
+<h3>Example 1: Print 10 to 20</h3>
+<pre>
+let j = 10;
+while (j <= 20) {
+  console.log("j:", j);
+  j++;
+}
+</pre>
+
+<hr>
+
+<h2>🔹 Do-While Loop</h2>
+<p>
+<b>Do-while loop runs at least one time</b>,
+even if the condition is false.
+</p>
+
+<p>
+<b>Structure:</b>
+</p>
+
+<pre>
+start
+do {
+  // code
+  change
+} while (condition);
+</pre>
+
+<h3>Example 2: Print 1 to 5</h3>
+<pre>
+let p = 1;
+do {
+  console.log(p);
+  p++;
+} while (p <= 5);
+</pre>
+
+<hr>
+
+<h2>📌 Practice Examples</h2>
+
+<h3>Example 1: Print 10 to 20</h3>
+<pre>
+let k = 10;
+while (k <= 20) {
+  console.log(k);
+  k++;
+}
+</pre>
+
+<h3>Example 2: Print 6 to 2 (reverse)</h3>
+<pre>
+let ao = 6;
+while (ao > 1) {
+  console.log(ao);
+  ao--;
+}
+</pre>
+
+<h3>Example 3: Print "Hello" 5 times</h3>
+<pre>
+let i = 1;
+while (i <= 5) {
+  console.log("Hello");
+  i++;
+}
+</pre>
+
+<h3>Example 4: Print 20 to 25</h3>
+<pre>
+let d = 20;
+while (d >= 20 && d <= 25) {
+  console.log(d);
+  d++;
+}
+</pre>
+
+<h3>Example 5: Print 50 to 60</h3>
+<pre>
+let q = 50;
+while (q <= 60) {
+  console.log(q);
+  q++;
+}
+</pre>
+
+<hr>
+
+<h2>🔹 Do-While More Examples</h2>
+
+<h3>Example 6: Print 10 to 20</h3>
+<pre>
+let g = 10;
+do {
+  console.log("do while:", g);
+  g++;
+} while (g <= 20);
+</pre>
+
+<h3>Example 7: Print 10 to 1</h3>
+<pre>
+let h = 10;
+do {
+  console.log("do while:", h);
+  h--;
+} while (h >= 1);
+</pre>
+
+<hr>
+
