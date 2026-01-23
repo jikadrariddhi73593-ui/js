@@ -1050,6 +1050,535 @@ do {
 
 <hr>
 
+<h1>JavaScript Break & Continue Statement</h1>
+
+<p>
+This README explains the use of <b>break</b> and <b>continue</b> statements in JavaScript
+with simple <b>for loop</b> examples.
+</p>
+
+<hr>
+
+<h2>Break Statement</h2>
+
+<p>
+<b>break</b> statement loop ko turant stop kar deta hai jab condition true hoti hai.
+</p>
+
+<h3>Example 1</h3>
+<p>1 se 201 tak number print honge, lekin loop 32 par stop ho jayega.</p>
+
+<pre>
+for(let k = 1; k <= 201; k++) {
+    console.log(k);
+    if(k === 32) {
+        break;
+    }
+}
+</pre>
+
+<h3>Example 2</h3>
+<p>10 se 20 tak number print honge, lekin loop 15 par ruk jayega.</p>
+
+<pre>
+for(let k = 10; k <= 20; k++) {
+    console.log(k);
+    if(k === 15) {
+        break;
+    }
+}
+</pre>
+
+<hr>
+
+<h2>Continue Statement</h2>
+
+<p>
+<b>continue</b> statement loop ko stop nahi karta,
+sirf current value ko skip karta hai.
+</p>
+
+<h3>Example 1</h3>
+<p>1 se 10 tak number print honge, lekin 5 skip ho jayega.</p>
+
+<pre>
+for(let a = 1; a <= 10; a++) {
+    if(a === 5) {
+        continue;
+    }
+    console.log(a);
+}
+</pre>
+
+<h3>Example 2</h3>
+<p>100 se 110 tak number print honge, lekin 109 skip ho jayega.</p>
+
+<pre>
+for(let a = 100; a <= 110; a++) {
+    if(a === 109) {
+        continue;
+    }
+    console.log(a);
+}
+</pre>
+
+<hr>
+
+
+
+<ul>
+    <li><b>break</b> → loop ko completely stop karta hai</li>
+    <li><b>continue</b> → ek value skip karta hai, loop chalta rehta hai</li>
+</ul>
+
+
+<div>
+<h1>Example 1:</h1>
+<p>Print number from 1 to 10 using a for loop.</p>
+
+<pre><code>
+for(let q = 1; q <= 10; q++) {
+    console.log(q);
+}
+</code></pre>
+
+<p><b>Why output aaya:</b> for loop 1 se start hota hai aur q++ hone se 10 tak numbers print hote hain.</p>
+<p><b>Error:</b> Koi error nahi hai.</p>
+</div>
+
+<div>
+<h1>Example 2:</h1>
+<p>Print number from 10 to 1 using while loop.</p>
+
+<pre><code>
+let i = 10;
+
+while (i >= 1) {
+    console.log(i);
+    i--;
+}
+</code></pre>
+
+<p><b>Why output aaya:</b> while loop condition true hone tak reverse order me print karta hai.</p>
+<p><b>Error:</b> Koi error nahi hai.</p>
+</div>
+
+<div>
+<h1>Example 3:</h1>
+<p>Print even numbers from 1 to 20 using for loop.</p>
+
+<pre><code>
+for(let i = 1; i <= 20; i++) {
+    if(i % 2 === 0) {
+        console.log(i);
+    }
+}
+</code></pre>
+
+<p><b>Why output aaya:</b> i%2 === 0 hone par even numbers print hote hain.</p>
+<p><b>Error:</b> Koi error nahi hai.</p>
+</div>
+<div>
+<h1>Example 4:</h1>
+<p>Print odd numbers from 1 to 15 using while loop.</p>
+<pre><code>
+let i = 1;
+while(i <= 15) {
+    if(i % 2 !== 0) {
+        console.log(i);
+    }
+    i++;
+}
+</code></pre>
+<p><b>Why output aaya:</b> odd number condition true hone par print hota hai.</p>
+<p><b>Error:</b> Koi error nahi hai.</p>
+</div>
+<div>
+<h1>Example 5:</h1>
+<p>Print the multiplication table of 5.</p>
+<pre><code>
+for(let i = 1; i <= 10; i++) {
+    console.log(`5 x ${i} = ${5 * i}`);
+}
+</code></pre>
+<p><b>Why output aaya:</b> template literal se table proper format me print hoti hai.</p>
+<p><b>Error:</b> Koi error nahi hai.</p>
+</div>
+<div>
+<h1>Example 6:</h1>
+<p>Find the sum of numbers from 1 to 100 using a loop.</p>
+<pre><code>
+let sum = 0;
+for(let i = 1; i <= 100; i++) {
+    sum = sum + i;
+}
+console.log(sum);
+</code></pre>
+<p><b>Why output aaya:</b> har iteration me sum variable me value add hoti hai.</p>
+<p><b>Error:</b> Koi error nahi hai.</p>
+</div>
+<div>
+<h1>Example 7:</h1>
+<p>Print all numbers between 1 to 50 that are divisible by 3.</p>
+<pre><code>
+for(let i = 1; i <= 50; i++) {
+    if(i % 3 === 0) {
+        console.log(i);
+    }
+}
+</code></pre>
+<p><b>Why output aaya:</b> sirf 3 se divisible numbers print hote hain.</p>
+<p><b>Error:</b> Koi error nahi hai.</p>
+</div>
+<div>
+<h1>Example 8:</h1>
+<p>Ask the user for a number and print whether each number from 1 to that number is even or odd.</p>
+<pre><code>
+let num = prompt("give a number");
+for(let i = 1; i <= num; i++) {
+    if(i % 2 === 0) {
+        console.log(i, "is even");
+    } else {
+        console.log(i, "is odd");
+    }
+}
+</code></pre>
+<p><b>Why output aaya:</b> loop user ke number tak chalta hai aur even/odd check karta hai.</p>
+<p><b>Error (before fix):</b> numl likhne se error aata tha kyunki variable exist nahi karta.</p>
+</div>
+<div>
+<h1>Example 9:</h1>
+<p>Count how many numbers between 1 to 100 are divisible by 3 or 5.</p>
+<pre><code>
+for(let i = 1; i <= 100; i++) {
+    if(i % 3 === 0 || i % 5 === 0) {
+        console.log(i);
+    }
+}
+</code></pre>
+<p><b>Why output aaya:</b> OR operator dono conditions check karta hai.</p>
+<p><b>Error:</b> Koi error nahi hai.</p>
+</div>
+<div>
+<h1>(Break and Continue) Example 10:</h1>
+<p>Stop at First Multiple of 7</p>
+<pre><code>
+for(let i = 1; i <= 100; i++) {
+    console.log(i);
+    if(i % 7 === 0) {
+        break;
+    }
+}
+</code></pre>
+<p><b>Why output aaya:</b> break pehla multiple of 7 milte hi loop stop karta hai.</p>
+<p><b>Error:</b> Koi error nahi hai.</p>
+</div>
+<div>
+<h1>(Break and Continue) Example 11:</h1>
+<p>Skip Multiples of 3</p>
+<pre><code>
+for(let i = 1; i <= 20; i++) {
+    if(i % 3 === 0) {
+        continue;
+    }
+    console.log(i);
+}
+</code></pre>
+<p><b>Why output aaya:</b> continue multiples of 3 ko skip kar deta hai.</p>
+<p><b>Error:</b> Koi error nahi hai.</p>
+</div>
+<div>
+<h1>(Break and Continue) Example 12:</h1>
+<p>Print First 5 Odd Numbers</p>
+<pre><code>
+let count = 0;
+for(let i = 1; i <= 100; i++) {
+    if(i % 2 === 1) {
+        count++;
+        console.log(i);
+    }
+    if(count === 5) {
+        break;
+    }
+}
+</code></pre>
+<p><b>Why output aaya:</b> 5 odd numbers count hote hi loop break ho jata hai.</p>
+<p><b>Error (before fix):</b> extra text aur galat variable ki wajah se error aa raha tha.</p>
+</div>
+<h1>JavaScript Functions</h1>
+<p>
+Function JavaScript ka ek important concept hai jo specific task perform karta hai
+aur code ko reusable banata hai.
+</p>
+<hr>
+<h2>What is a Function?</h2>
+<p>
+<b>Function</b> ek block of code hota hai jo ek specific task perform karta hai
+aur baar-baar use kiya ja sakta hai.
+</p>
+<h2>Why use Function?</h2>
+<ul>
+  <li>Code repetition avoid karne ke liye</li>
+  <li>Code ko modular aur readable banane ke liye</li>
+</ul>
+<h2>How to create a Function?</h2>
+<p>
+Function banane ke liye following parts hote hain:
+</p>
+<ul>
+  <li><b>function</b> keyword</li>
+  <li>function name</li>
+  <li>parameters</li>
+  <li>function body</li>
+  <li>return statement (optional)</li>
+</ul>
+<hr>
+<h2>Types of Functions</h2>
+<h3>1️⃣ Function Declaration</h3>
+<pre><code>
+function abc() {
+}
+</code></pre>
+<p><b>Explanation:</b> Normal way se function define karna function declaration kehlata hai.</p>
+
+<h3>2️⃣ Function Expression</h3>
+<pre><code>
+let fnc = function() {
+}
+</code></pre>
+<p><b>Explanation:</b> Function ko variable me store karna function expression kehlata hai.</p>
+
+<h3>3️⃣ Arrow Function (Fat Arrow Function)</h3>
+<pre><code>
+let fnc1 = () => {
+}
+</code></pre>
+<p><b>Explanation:</b> Arrow function short aur modern syntax provide karta hai.</p>
+<hr>
+<h2>Simple Function Example</h2>
+<pre><code>
+function temp_cart() {
+    console.log("adding product");
+}
+temp_cart("laptop");
+temp_cart("watch");
+temp_cart("mobile");
+</code></pre>
+<p><b>Why output aaya:</b> Function call hone par console.log statement execute hoti hai.</p>
+<p><b>Note:</b> Yaha arguments pass kiye gaye hain lekin function unhe use nahi kar raha.</p>
+<hr>
+<h2>Parameters vs Arguments</h2>
+<ul>
+  <li><b>Parameters:</b> Function definition ke andar jo values hoti hain</li>
+  <li><b>Arguments:</b> Function call ke time jo actual values pass hoti hain</li>
+</ul>
+<h3>Example with Parameters and Arguments</h3>
+<pre><code>
+function cart(product) {
+    console.log(`Adding ${product}`);
+}
+cart("Laptop");
+cart("Mac Book");
+cart("S25 ultra");
+</code></pre>
+<hr>
+<h2>Multiple Parameters Example</h2>
+<pre><code>
+function cart3(student, marks) {
+    console.log(`marks ${marks} name ${student}`);
+}
+cart3("mansi", 25);
+cart3("jinal", 20);
+cart3("nidhi", 22);
+</code></pre>
+<p>
+This README explains advanced JavaScript function concepts such as
+arrow functions, function expressions, default parameters, rest parameters,
+early return, and first-class functions.
+</p>
+<hr>
+<h2>Convert into Arrow Function</h2>
+<pre><code>
+let cart4 = (student, marks) => {
+    console.log(`arrow function marks ${marks} name ${student}`);
+};
+
+cart4("nidhi", 22);
+</code></pre>
+<hr>
+<h2>Convert into Function Expression</h2>
+<pre><code>
+let cart4 = function(student, marks) {
+    console.log(`function expression marks ${marks} name ${student}`);
+};
+cart4("nidhi", 22);
+</code></pre>
+<hr>
+<h2>Default Parameters</h2>
+<pre><code>
+function abcd(b = 10, price = 0) {
+    console.log(price, b);
+}
+abcd(15);
+</code></pre>
+<hr>
+<h2>Without Rest Parameters (Normal Way)</h2>
+<pre><code>
+function def(a, b, c, d, e, f, g) {
+    console.log(a, b, c, d, e, f, g);
+}
+def(1, 2, 3, 4, 5, 6, 7);
+</code></pre>
+<hr>
+<h2>Rest Parameters</h2>
+<pre><code>
+function def1(a, b, ...pagals) {
+    console.log(a, b, pagals);
+}
+
+def1("jinal", "riddhi", "baghado", "bhutado");
+</code></pre>
+
+<hr>
+<h2>Early Return in Function</h2>
+<pre><code>
+function score1(value) {
+    if (value > 90) return "Value is more than 90";
+    else if (value < 80) return "Value is less than 80";
+    else if (value < 70) return "Value is less than 70";
+    else if (value < 60) return "Value is less than 60";
+    else return "Value is less than 60";
+}
+let result = score1(80);
+console.log(result);
+</code></pre>
+<p><b>Concept:</b> Early return function ko fast aur readable banata hai.</p>
+
+<hr>
+
+<h2>First Class Functions</h2>
+
+<p>JavaScript me function ko variable ki tarah treat kiya ja sakta hai.</p>
+
+<h3>1️⃣ Function stored in Variable</h3>
+
+<pre><code>
+const cart5 = function(product, price) {
+    console.log(`Adding ${product} at ${price}`);
+};
+
+cart5("function expression - S25 ultra", 69000);
+</code></pre>
+<hr>
+
+<h3>2️⃣ Function Passed as Argument</h3>
+
+<pre><code>
+function temp_b(fnc) {
+    fnc();
+}
+
+temp_b(function fnc2() {
+    console.log("First Class Function");
+});
+</code></pre>
+<hr>
+
+<h3>3️⃣ Function Returned from Another Function</h3>
+
+<pre><code>
+function abcd() {
+    return function () {
+        console.log("function return other function");
+    };
+}
+abcd()();
+</code></pre>
+<hr>
+<h1>Higher Order Functions (HOF) in JavaScript</h1>
+
+<p>
+Higher Order Function (HOF) wo function hota hai jo
+<b>kisi aur function ko argument ke roop me accept kare</b>
+ya <b>kisi function ko return kare</b>.
+</p>
+
+<hr>
+
+<h2>What is a Higher Order Function?</h2>
+
+<p>
+Agar koi function:
+</p>
+<ul>
+  <li>ek function ko parameter ke roop me leta hai, ya</li>
+  <li>ek function return karta hai</li>
+</ul>
+<p>
+to use <b>Higher Order Function</b> kehte hain.
+</p>
+
+<hr>
+
+<h2>Example 1: Function Passed as Argument</h2>
+
+<pre><code>
+function hello(riddhi) {
+    riddhi();
+}
+
+hello(function r() {
+    console.log("hello riddhi");
+});
+</code></pre>
+
+<p><b>Why output aaya:</b> hello() function ke andar jo function argument ke roop me pass hua,
+use riddhi() ke through call kiya gaya.</p>
+
+<p><b>Concept:</b> hello() ek Higher Order Function hai kyunki ye ek function ko accept karta hai.</p>
+
+<p><b>Error:</b> Koi error nahi hai.</p>
+
+<hr>
+
+<h2>Example 2: Function Returning Another Function</h2>
+
+<pre><code>
+function abcd() {
+    return function() {
+        console.log("Higher Order Function example");
+    };
+}
+
+abcd()();
+</code></pre>
+
+<p><b>Why output aaya:</b> Pehla () outer function ko call karta hai
+aur dusra () returned function ko call karta hai.</p>
+
+<p><b>Concept:</b> abcd() Higher Order Function hai kyunki ye ek function return karta hai.</p>
+
+<p><b>Error:</b> Koi error nahi hai.</p>
+
+<hr>
+
+<h2>Why use Higher Order Functions?</h2>
+
+<ul>
+  <li>Code ko reusable banane ke liye</li>
+  <li>Clean aur readable code likhne ke liye</li>
+  <li>Callbacks, map, filter, reduce jaise concepts ke liye</li>
+</ul>
+
+<hr>
+
+<h2>Summary</h2>
+
+<ul>
+  <li>HOF function ko argument ke roop me accept karta hai</li>
+  <li>Ya function ko return karta hai</li>
+  <li>JavaScript me functions first-class citizens hote hain</li>
+</ul>
 
 </body>
 </html>
