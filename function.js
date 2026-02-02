@@ -286,3 +286,95 @@ function checkAge(age){
 
 function f(){ 
  return;}
+
+//  Example 12
+// Question: Can you assign a function to a variable and then call it?
+let ab = function(){
+    console.log("Hello");
+}
+ab();
+// Example 13
+// Question: Pass a function into another function and execute it.
+function abcd(val){
+    val();
+}
+abcd(function(){
+    console.log("Hello");
+});
+// Example 15
+// Identify higher order function
+[1, 2, 3].map(function(x){
+    return x * 2;
+});
+
+// Example 16
+// Pure or Impure function?
+let total = 5;
+function num(num){
+    total += num;
+}
+num(3);
+
+// Example 17
+// Convert example 16 into pure function
+function num(total, num){
+    return total + num;
+}
+num(5, 3);
+
+// Example 18
+// Question: What is Closure? When is it created?
+// Closure ત્યારે બને છે જ્યારે inner function outer function ના variables ને access કરે, even outer function execute થઈ ગયા પછી પણ.
+function outer(){
+    let x = 10;
+    return function(){
+        console.log(x);
+    }
+}
+
+// Example 19
+// What's logged?
+function outer(){
+    let count = 0;
+    return function(){
+        count++;
+        console.log(count);
+    };
+}
+const counter = outer();
+counter();
+counter();
+
+// Example 20
+// Convert function into IIFE
+(function(){
+    console.log("Initialized");
+})();
+
+// Example 21
+// Use of IIFE & real-world example
+let fun = (function(){
+    let score = 0; // private variable
+    return {
+        getScore: function(){
+            console.log(score);
+        },
+        setScore: function(val){
+            score = val;
+        }
+    }
+})();
+
+// Example 22
+// What will be the output and why?
+temp_var();
+var temp_var = function(){
+    console.log("Hello");
+}
+  
+//   Example 23
+// What will be the output and why?
+temp_var();
+function temp_var(){
+    console.log("Hello");
+}
