@@ -1572,3 +1572,578 @@ aur dusra () returned function ko call karta hai.</p>
   <li>JavaScript me functions first-class citizens hote hain</li>
 </ul>
 
+<h1>JavaScript Functions – Core Concepts</h1>
+
+<p>
+આ README ફાઈલમાં JavaScript ના મહત્વના concepts સમજાવેલા છે:
+Pure Function, Impure Function, Closure, Lexical Scope, IIFE અને Hoisting.
+</p>
+
+<hr>
+
+<h2>1️⃣ Pure Function</h2>
+<p>
+Pure function એ એવી function હોય છે જે:
+</p>
+<ul>
+  <li>Same input પર હંમેશા same output આપે</li>
+  <li>બહારની કોઈ state (global variable) ને modify ન કરે</li>
+</ul>
+
+<pre><code>
+let a = 10;
+
+function abcd_pure() {
+    console.log("hello");
+}
+</code></pre>
+
+<p>
+આ function pure છે કારણ કે તે કોઈ external variable change કરતી નથી.
+</p>
+
+<hr>
+
+<h2>2️⃣ Impure Function</h2>
+<p>
+Impure function એ એવી function છે જે:
+</p>
+<ul>
+  <li>External state ને modify કરે</li>
+  <li>Same input હોવા છતાં different output આપી શકે</li>
+</ul>
+
+<pre><code>
+let a = 10;
+
+function abcd_impure() {
+    a++;
+    console.log(a);
+}
+</code></pre>
+
+<p>
+આ function impure છે કારણ કે તે global variable <b>a</b> ને modify કરે છે.
+</p>
+
+<hr>
+
+<h2>3️⃣ Closure Function</h2>
+<p>
+Closure એટલે:
+Function જે પોતાના parent function ના variables ને access કરી શકે,
+even parent function execute થઈ ગયા પછી પણ.
+</p>
+
+<pre><code>
+function outer() {
+    let count = 0;
+
+    function inner() {
+        count++;
+        console.log(count);
+    }
+    return inner;
+}
+
+let fnc = outer();
+fnc();
+</code></pre>
+
+<p>
+અહીં <b>inner()</b> function, <b>outer()</b> ના variable <b>count</b> ને access કરે છે – આને Closure કહે છે.
+</p>
+
+<hr>
+
+<h2>4️⃣ Lexical Scope</h2>
+<p>
+Lexical Scope મુજબ:
+Nested functions તેમના outer scope ના variables ને access કરી શકે છે.
+</p>
+
+<pre><code>
+function outer1() {
+    let outer_var = "outer function variable";
+
+    function inner1() {
+        let inner1_var = "inner1 function variable";
+        console.log(outer_var);
+
+        function most_inner() {
+            console.log(inner1_var);
+            console.log(outer_var);
+
+            let most_inner_var = "most inner function variable";
+
+            function abc() {
+                console.log(most_inner_var);
+                console.log(inner1_var);
+                console.log(outer_var);
+            }
+            abc();
+        }
+        most_inner();
+    }
+    inner1();
+}
+
+outer1();
+</code></pre>
+
+<p>
+અહીં સૌથી inner function પણ outer variables access કરી શકે છે – આ lexical scoping છે.
+</p>
+
+<hr>
+
+<h2>5️⃣ IIFE (Immediately Invoked Function Expression)</h2>
+<p>
+IIFE એવી function છે જે define થતાં જ execute થાય છે.
+</p>
+
+<pre><code>
+(function () {})();
+
+(function () {
+    console.log("this is iife function");
+})();
+</code></pre>
+
+<p>
+IIFE નો ઉપયોગ mostly scope pollution ટાળવા માટે થાય છે.
+</p>
+
+<hr>
+
+<h2>6️⃣ Hoisting in Function</h2>
+<p>
+JavaScript માં function declarations hoist થાય છે,
+એટલે function call, definition પહેલા પણ શક્ય છે.
+</p>
+
+<pre><code>
+abcde();
+
+function abcde() {
+    console.log("this is hoisting function");
+}
+</code></pre>
+
+<h3>❌ Function Expression Hoist થતી નથી</h3>
+
+<pre><code>
+// hoistedFunction1(); ❌ Error
+
+let hoistedFunction1 = function () {
+    console.log("hoisted function expression called");
+};
+</code></pre>
+
+<h3>❌ Arrow Function પણ Hoist થતી નથી</h3>
+
+<pre><code>
+// hoistedFunction2(); ❌ Error
+
+let hoistedFunction2 = () => {
+    console.log("hoisted arrow function called");
+};
+</code></pre>
+
+<hr>
+
+## Function Examples
+<hr>
+<div>
+<h1> Example 1: </h1>
+<p>What's the difference between function declaration and function expression in terms of hoisting?</p>
+<p>ans: fuction declarration karie  to fuction delcare pela j call thai sake pan  fuyction expression no use kari e to fuction delcere krya pela call na thay eerorr aave </p>
+</div>
+
+<div>
+<h1> Example 2: </h1>
+<pre><code>
+<p>greet();</p>
+<p>function greet(){
+    console.log("Hello!");
+}</p>
+</code></pre>
+<p>Ans</p>
+<p>Why: in hosting fuction call before declaretion</p>
+</div>
+
+<div>
+<h1> Example 3: </h1>
+<p>Convert normal function to Arrow Function</p>
+<pre><code>
+<p>let add = (a,b) =>
+{ 
+    console.log (a , b);
+}
+add(5,23);
+</p>
+</code></pre>
+<p>Ans</p>
+</div>
+
+<div>
+<h1> Example 4: </h1>
+<p>Identify what is parms and what is args</p>
+<pre><code>
+<p>function welcome(name){
+    console.log("Welcome " + name);
+}</p>
+<p>welcome("user");</p>
+</code></pre>
+<p>Ans: name is parameter and user is argument</p>
+<p>why: parameter is pass with function when function  delcere and argument pass with function when function call</p>
+</div>
+
+<div>
+<h1> Example 5: </h1>
+<p>how many parameters and args</p>
+<pre><code>
+<p>function temp (a, b, c){
+    console.log(a,b,c);
+}</code></pre></p>
+<p>temp(1, 2)</p>
+<p> ans: peramerter i three (a,b,c,d) and argument is (1,2)</p>
+</div>
+
+<div>
+<h1> Example 6: </h1>
+<pre><code>
+<p>Predict the output</p>
+<p>function temp_user(name = "Guest"){
+    console.log("Hello " + name);
+}</p>
+<p>temp_user();</p>
+</code></pre>
+<p>Ans:Hello Guest</p>
+<p>why:console log ma  karie tyre variable call karie to variable ni value pan print thay </p>
+</div>
+
+<div>
+<h1> Example 7: </h1>
+
+<p>what is ... operator and why use it  in function</p>
+<pre><code>
+<p>function number(...numbers){
+    console.log(numbers);
+}</p>
+<p>number(1, 2, 3, 4, 5)</p>
+</code></pre>
+<p>Ans:[1,2,3,4,5]</p>
+<p>why:jyare apne reset fuction banaviae to vadhare perameter pass no karva pade /p>
+</div>
+
+<div>
+<h1> Example 8: </h1>
+<p>Use rest Parameters to accept any number of scores and return the total</p>
+<pre><code>
+<p>function calculateTotal(...scores){
+    let total = 0;
+    for(let i=0; i<=scores.length; i++){
+        total += scores[i];
+    }
+    return total;
+}</p>
+<p>function calculateTotal(...scores){
+    let total = 0;
+    scores.forEach(function(val){
+        total = total + val;
+    });
+    return total;
+}</p>
+<p>calculateTotal(10, 20 ,30 ,40 ,50)</p>
+<p>let sumtotal = calculateTotal(10, 20 ,30 ,40 ,50)</p>
+</code></pre>
+<p>Err</p>
+<p>Why: because th efirst fuction user i <= scores.lenght, it accesses an undefined value and results in nan , not a valid ans</p>
+</div>
+
+<div>
+<h1> Example 9: </h1>
+<p>Fix the function using early return</p>
+<pre><code>
+<p>function checkAge(age){
+    if(age < 18){
+        console.log("Too Young");
+    } else {
+        console.log("Access Granted");
+    }
+}
+</code></pre></p>
+<p>Ans:Access Granted </p>
+
+</div>
+
+<div>
+<h1> Example 10: </h1>
+<p>What is the return value of above function</p>
+<p>function f(){ return;}</p>
+<p>Ans and Why: no output beacuse we dont return any thing in this example</p>
+
+<h2>Function Examples (11–23)</h2>
+<hr>
+
+<div>
+  <h3>Example 11</h3>
+  <p><b>Question:</b> What does it mean when we say "functions are first-class citizens"?</p>
+
+  <p><b>Answer:</b></p>
+  <p>
+    JavaScript માં functions ને first-class citizens કહેવામાં આવે છે કારણ કે
+    functions ને variable માં assign કરી શકાય, function તરીકે pass કરી શકાય
+    અને function માંથી return પણ કરી શકાય.
+  </p>
+
+  <p><b>Why:</b> Functions values જેમ behave કરે છે.</p>
+</div>
+
+<hr>
+
+<div>
+  <h3>Example 12</h3>
+  <p><b>Question:</b> Can you assign a function to a variable and then call it?</p>
+
+  <pre><code>
+let a = function(){
+    console.log("Hello");
+}
+
+a();
+  </code></pre>
+
+  <p><b>Answer:</b> Yes, output: <b>Hello</b></p>
+  <p><b>Why:</b> Functions first-class citizens છે, એટલે variable માં store કરી શકાય.</p>
+</div>
+
+<hr>
+
+<div>
+  <h3>Example 13</h3>
+  <p><b>Question:</b> Pass a function into another function and execute it.</p>
+
+  <pre><code>
+function abcd(val){
+    val();
+}
+
+abcd(function(){
+    console.log("Hello");
+});
+  </code></pre>
+
+  <p><b>Answer:</b> Output: <b>Hello</b></p>
+  <p><b>Why:</b> Function ને argument તરીકે pass કરીને call કરવામાં આવ્યું છે.</p>
+</div>
+
+<hr>
+
+<div>
+  <h3>Example 14</h3>
+  <p><b>Question:</b> What is a Higher Order Function?</p>
+
+  <p><b>Answer:</b></p>
+  <p>
+    Higher Order Function એ એવી function છે જે:
+  </p>
+  <ul>
+    <li>Function ને argument તરીકે accept કરે</li>
+    <li>અથવા function return કરે</li>
+  </ul>
+
+  <p><b>Why:</b> JavaScript માં functions values છે.</p>
+</div>
+
+<hr>
+
+<div>
+  <h3>Example 15</h3>
+  <p><b>Identify higher order function</b></p>
+
+  <pre><code>
+[1, 2, 3].map(function(x){
+    return x * 2;
+});
+  </code></pre>
+
+  <p><b>Answer:</b> <code>.map()</code> higher order function છે.</p>
+  <p><b>Why:</b> કારણ કે <code>map()</code> function તરીકે callback accept કરે છે.</p>
+</div>
+
+<hr>
+
+<div>
+  <h3>Example 16</h3>
+  <p><b>Pure or Impure function?</b></p>
+
+  <pre><code>
+let total = 5;
+
+function num(num){
+    total += num;
+}
+
+num(3);
+  </code></pre>
+
+  <p><b>Answer:</b> Impure Function ❌</p>
+  <p><b>Why:</b> Function external variable <code>total</code> ને modify કરે છે.</p>
+</div>
+
+<hr>
+
+<div>
+  <h3>Example 17</h3>
+  <p><b>Convert example 16 into pure function</b></p>
+
+  <pre><code>
+function num(total, num){
+    return total + num;
+}
+
+num(5, 3);
+  </code></pre>
+
+  <p><b>Answer:</b> Pure Function ✅</p>
+  <p><b>Why:</b> No external state modify થાય છે, output only input પર depend છે.</p>
+</div>
+
+<hr>
+
+<div>
+  <h3>Example 18</h3>
+  <p><b>Question:</b> What is Closure? When is it created?</p>
+
+  <p><b>Answer:</b></p>
+  <p>
+    Closure ત્યારે બને છે જ્યારે inner function
+    outer function ના variables ને access કરે,
+    even outer function execute થઈ ગયા પછી પણ.
+  </p>
+
+  <pre><code>
+function outer(){
+    let x = 10;
+    return function(){
+        console.log(x);
+    }
+}
+  </code></pre>
+
+  <p><b>When:</b> Function creation સમયે.</p>
+</div>
+
+<hr>
+
+<div>
+  <h3>Example 19</h3>
+  <p><b>What's logged?</b></p>
+
+  <pre><code>
+function outer(){
+    let count = 0;
+    return function(){
+        count++;
+        console.log(count);
+    };
+}
+
+const counter = outer();
+counter();
+counter();
+  </code></pre>
+
+  <p><b>Answer:</b></p>
+  <ul>
+    <li>First call → 1</li>
+    <li>Second call → 2</li>
+  </ul>
+
+  <p><b>Why:</b> Closure memory માં <code>count</code> value retain રાખે છે.</p>
+</div>
+
+<hr>
+
+<div>
+  <h3>Example 20</h3>
+  <p><b>Convert function into IIFE</b></p>
+
+  <pre><code>
+(function(){
+    console.log("Initialized");
+})();
+  </code></pre>
+
+  <p><b>Why:</b> Function immediately execute થાય છે.</p>
+</div>
+
+<hr>
+
+<div>
+  <h3>Example 21</h3>
+  <p><b>Use of IIFE & real-world example</b></p>
+
+  <pre><code>
+let fun = (function(){
+    let score = 0; // private variable
+    return {
+        getScore: function(){
+            console.log(score);
+        },
+        setScore: function(val){
+            score = val;
+        }
+    }
+})();
+  </code></pre>
+
+  <p><b>Answer:</b></p>
+  <p>
+    IIFE private variables create કરવા માટે વપરાય છે.
+  </p>
+  <p><b>Real-world use:</b> Data encapsulation, module pattern.</p>
+</div>
+
+<hr>
+
+<div>
+  <h3>Example 22</h3>
+  <p><b>What will be the output and why?</b></p>
+
+  <pre><code>
+temp_var();
+
+var temp_var = function(){
+    console.log("Hello");
+}
+  </code></pre>
+
+  <p><b>Answer:</b> ❌ Error (TypeError)</p>
+  <p><b>Why:</b> Variable hoist થાય છે but function assignment થતું નથી.</p>
+</div>
+
+<hr>
+
+<div>
+  <h3>Example 23</h3>
+  <p><b>What will be the output and why?</b></p>
+
+  <pre><code>
+temp_var();
+
+function temp_var(){
+    console.log("Hello");
+}
+  </code></pre>
+
+  <p><b>Answer:</b> Hello</p>
+  <p><b>Why:</b> Function declaration fully hoisted થાય છે.</p>
+</div>
+
+<hr>
+
+
+</div>
