@@ -275,7 +275,7 @@ let shhose_brand_type=shhose_brand.filter((type) =>
 });
 
 
-// reduce
+//<--------------------- reduce----------------------------->
 //reduce tyare j use karvu ke jyare ek single values cvalculate kaevi hoy from array
 let totle_price=[15,68,45,58,52,48];
 let final_price =totle_price.reduce((a5,val)=>
@@ -507,3 +507,113 @@ const sumOfSquares = numbers10
   .filter(num => num % 2 === 0)
   .map(num => num * num)
   .reduce((sum, num) => sum + num, 0);
+
+//<-------------------- find-----------------------> 
+//find tyare j use karvu ke jyare array mathi ak value find karvi hoy based on condition
+//find() retuen kare chee array no elemet -> callback no return value nahi
+//never returns what you return inside it
+//returns the array element itself -- not return array
+//.find () stops at the first match
+//it does not continue looping
+
+let producat = ["leptop","mobole","tablet","desktop","smart watch"
+]
+let find_product = producat.find((item)=>
+{
+  //console.log("can't find product");//not working why??
+if (item ==="mobile")
+  {
+  return true;
+  }
+  else if (item ==="tablet")
+  {
+    return true;
+  }
+  else{
+    return false;
+  }
+});
+
+//use case --date ma thi ek value find karvi hoy based on condition
+//ex. product ma thi specifice product find karvo hoy based on name
+
+//find Vs filter
+//real-life scenario:shopping mall security
+//your are a security guaed at a shopping ,mall 
+//check the list of visitors
+let people =["john","sara","mike","anna","david","sara"]
+//find --> you are looking for the first person named "sara" inthe list and stop searching (pehli var j male ,bas e j anagal check j na kare)
+let person=people.find((name)=> name==="sara")
+console.log(person);
+
+//filter --> you want to find all visitors named "sara" in the list (all data check kare and list named "sara" in the list (all data check kare and list na end sudhi check kare)
+let allsara =people.filter((name)=> name ==="sara");
+console.log(allsara);
+
+//<-----------------------some-------------------------->
+//check kare chhe ke array ma koi pan ek item condition satisfy kare chhe ke nahi
+//condition true aave tyare stop kare
+//some() VS find() --> some () can't return you value its return true or false ,finbd() return value of array
+//give ans in true and false
+let marks2 =[10,20,35,90];
+let any = marks2.some((val)=>
+{if (val>85)
+  return true;
+  //if (val <85 return "need improvement")
+});
+console.log(any)
+//use case -- check if some product are out of stock in your cart 
+
+// <---------------------every------------------------->
+//check kare chhe array ma badhha j items condition satisfy kare chhe ke nahi
+//true -- bahe items condition matcvh kare 
+//false -- ek pan fail thay to 
+let def =[20,30,90,45];
+let num = def.every(function(val){
+  return val <40;
+})
+
+//use case --> check all student is pass or not
+
+//some (),find(),filter(),every()
+let producats =["tablet","mobile","laptop","mobile"]
+// method -->condition --> output
+//.some() --> item === "mobile" -->true
+//.find() --> item === "mobile" -->"mobile"
+//.filter() --> item === "mobile" -->["mibile","mobile"]
+//.every() --> item === "mobile" -->false
+
+let find_product1 = producats.every((item)=>
+{
+if (item ==="mobile")
+  {
+  return true;
+  }
+});
+
+
+//distructuring oprator -- give value to variable (ex we don't use evert time arr[1],just save it into variable let [ ,k]= arr1)
+let arr4 =[1,2,3,4,5]
+//let j -arr4[0];
+//let k = arr4[2];
+let [j, ,k]= arr4 //--> destructuring
+//let [j , ,k]=arr;
+console.log(k);
+let user_data =["test","test@gmail.com","male","surat"]
+//name email ,gender,city
+let[name3,email,gender,city]= user_data
+console.log("name :",name3)
+console.log("email :", email)
+console.log("gender :",gender)
+console.log("city :",city)
+
+//spread oprator -- copy value from main array
+let arr8 =[1,2,3,4,5,6,7];
+//let arr4 =arr3 ; //-just give reference not copy values (when you change into arr4 that will be change arr3 too)
+let aee9 =[...arr8];
+//... ---> rest --> into function
+//... ---> spred ---> into array and object
+
+let temp_arr = [1,2,3];
+let temp_arr4=[3,4,5];
+mix_arr=[...temp_arr,...temp_arr4]
