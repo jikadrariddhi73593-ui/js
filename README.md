@@ -3117,3 +3117,210 @@ const sumOfSquares = numbers10
   .map(num => num * num)
   .reduce((sum, num) => sum + num, 0);
   </code></pre>
+<h1>JavaScript Array Methods & Operators</h1>
+
+<p>
+આ README માં JavaScript ના મહત્વના array methods અને operators
+<code>find()</code>, <code>filter()</code>, <code>some()</code>, <code>every()</code>,
+destructuring અને spread operator ને simple examples સાથે સમજાવવામાં આવ્યા છે.
+</p>
+
+<hr/>
+
+<h2>1. Array.find()</h2>
+
+<p>
+<code>find()</code> method array માંથી condition match થતો
+<strong>પહેલો element</strong> return કરે છે.
+</p>
+
+<ul>
+  <li>Callback function નું return value return થતું નથી</li>
+  <li>Array નો actual element return થાય છે</li>
+  <li>First match મળતાં જ loop stop થઈ જાય છે</li>
+</ul>
+
+<pre><code>
+let product = ["laptop","mobile","tablet","desktop","smart watch"];
+
+let find_product = product.find((item) => {
+  if (item === "mobile") {
+    return true;
+  }
+  else if (item === "tablet") {
+    return true;
+  }
+  else {
+    return false;
+  }
+});
+</code></pre>
+
+<p><strong>Use case:</strong> Specific product name based search</p>
+
+<hr/>
+
+<h2>2. find() vs filter()</h2>
+
+<p>
+Shopping mall security example:
+</p>
+
+<pre><code>
+let people = ["john","sara","mike","anna","david","sara"];
+
+// find → first match only
+let person = people.find(name => name === "sara");
+console.log(person);
+
+// filter → all matches
+let allSara = people.filter(name => name === "sara");
+console.log(allSara);
+</code></pre>
+
+<ul>
+  <li><strong>find()</strong> → First "sara" જ return કરે</li>
+  <li><strong>filter()</strong> → બધી "sara" ની list return કરે</li>
+</ul>
+
+<hr/>
+
+<h2>3. Array.some()</h2>
+
+<p>
+<code>some()</code> check કરે છે કે array માં
+<strong>ઓછામાં ઓછું એક item</strong> condition satisfy કરે છે કે નહીં.
+</p>
+
+<ul>
+  <li>Output → <code>true</code> અથવા <code>false</code></li>
+  <li>Condition true થતા જ loop stop</li>
+</ul>
+
+<pre><code>
+let marks = [10, 20, 35, 90];
+
+let result = marks.some(val => val > 85);
+console.log(result);
+</code></pre>
+
+<p><strong>Use case:</strong> Cart માં કોઈ product out of stock છે કે નહીં</p>
+
+<hr/>
+
+<h2>4. Array.every()</h2>
+
+<p>
+<code>every()</code> check કરે છે કે
+<strong>બધા elements</strong> condition satisfy કરે છે કે નહીં.
+</p>
+
+<pre><code>
+let numbers = [20, 30, 90, 45];
+
+let output = numbers.every(val => val < 40);
+console.log(output);
+</code></pre>
+
+<ul>
+  <li>બધા match → true</li>
+  <li>એક પણ fail → false</li>
+</ul>
+
+<p><strong>Use case:</strong> બધા students pass છે કે નહીં</p>
+
+<hr/>
+
+<h2>5. some(), find(), filter(), every() Comparison</h2>
+
+<pre><code>
+let products = ["tablet","mobile","laptop","mobile"];
+</code></pre>
+
+<table border="1">
+  <tr>
+    <th>Method</th>
+    <th>Condition</th>
+    <th>Output</th>
+  </tr>
+  <tr>
+    <td>some()</td>
+    <td>item === "mobile"</td>
+    <td>true</td>
+  </tr>
+  <tr>
+    <td>find()</td>
+    <td>item === "mobile"</td>
+    <td>"mobile"</td>
+  </tr>
+  <tr>
+    <td>filter()</td>
+    <td>item === "mobile"</td>
+    <td>["mobile","mobile"]</td>
+  </tr>
+  <tr>
+    <td>every()</td>
+    <td>item === "mobile"</td>
+    <td>false</td>
+  </tr>
+</table>
+
+<hr/>
+
+<h2>6. Array Destructuring</h2>
+
+<p>
+Destructuring નો ઉપયોગ કરીને array values ને
+direct variables માં store કરી શકાય છે.
+</p>
+
+<pre><code>
+let arr = [1,2,3,4,5];
+let [j, , k] = arr;
+console.log(k);
+</code></pre>
+
+<h3>User Data Example</h3>
+
+<pre><code>
+let user_data = ["test","test@gmail.com","male","surat"];
+
+let [name, email, gender, city] = user_data;
+
+console.log(name);
+console.log(email);
+console.log(gender);
+console.log(city);
+</code></pre>
+
+<hr/>
+
+<h2>7. Spread Operator (...)</h2>
+
+<p>
+Spread operator array અથવા object ની
+<strong>copy બનાવે છે</strong>.
+</p>
+
+<pre><code>
+let arr1 = [1,2,3,4,5];
+let arr2 = [...arr1];
+</code></pre>
+
+<h3>Merge Arrays</h3>
+
+<pre><code>
+let temp_arr1 = [1,2,3];
+let temp_arr2 = [3,4,5];
+
+let mix_arr = [...temp_arr1, ...temp_arr2];
+</code></pre>
+
+<ul>
+  <li><code>...</code> function માં → rest operator</li>
+  <li><code>...</code> array/object માં → spread operator</li>
+</ul>
+
+<hr/>
+
+<p><strong>Happy Learning JavaScript 🚀</strong></p>
